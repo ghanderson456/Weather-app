@@ -1,0 +1,43 @@
+body {
+  display: block;
+  margin: 100px;
+  position: fixed;
+  padding: 40px 20px;
+  background-color: #ffff;
+  border-style: solid;
+  border-color: #f1eded;
+  box-sizing: border-box;
+  border-width: 10px;
+}
+
+.card {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  border-color: green;
+  height: 300px;
+  width: 300px;
+  padding: 80px 0px;
+  border-width: 10px;
+}
+.col-2 {
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.container {
+  padding: 20px 20px;
+}
+
+.bi-cloud-drizzle-fill {
+  color: rgb(193, 193, 15);
+}
+
+.bi-cloud-sun-fill {
+  color: rgb(9, 112, 9);
+}
+
+.bi-brightness-high-fill {
+  color: rgb(190, 12, 12);
+}
