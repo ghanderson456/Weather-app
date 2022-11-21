@@ -21,8 +21,6 @@ function formatDate() {
   let date = `${day} ${hours}:${minutes}`;
   return date;
 }
-let p = document.querySelector("#date-time");
-p.innerHTML = formatDate();
 
 //function searchCity(event) {
 // event.preventDefault();
@@ -35,19 +33,17 @@ p.innerHTML = formatDate();
 //let button = document.querySelector("#button-addon2");
 //button.addEventListener("click", searchCity);
 
-function search(event) {
-  event.preventDefault();
-  let input = document.querySelector("#city-search");
-  let currentCity = document.querySelector("#current-city");
-  currentCity.innerHTML = `${input.value}`;
+function searchCity(city) {
   let apiKey = "6a24cc77d4ff78bf93b45ec8663047c7";
-  let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
-  let apiUrl = `${apiEndpoint}?q=${input.value}&appid=${apiKey}&units=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showWeather);
 }
 
-let button = document.querySelector("#button-addon2");
-button.addEventListener("click", search);
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#city-search").value;
+  searchCity(city);
+}
 
 //function degreesCelsius(event) {
 //  let temperature = document.querySelector("#temperature");
@@ -63,11 +59,10 @@ button.addEventListener("click", search);
 //fahrenheit.addEventListener("click", degreesFahrenheit);
 
 function showWeather(response) {
-  let h1 = document.querySelector("h1");
-  let h2 = document.querySelector("h2");
-  let temperature = Math.round(response.data.main.temp);
-  h1.innerHTML = `${temperature}°`;
-  h2.innerHTML = `${response.data.name}`;
+  document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector("#temperature").innerHTML = Math.round(
+    response.data.main.temp
+  );
 }
 
 function retrievePosition(position) {
@@ -83,7 +78,13 @@ function showCurrentWeatherLocation(event) {
   navigator.geolocation.getCurrentPosition(retrievePosition);
 }
 
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", handleSubmit);
+
 let buttonCurrent = document.querySelector("#button-addon3");
 buttonCurrent.addEventListener("click", showCurrentWeatherLocation);
+
+let p = document.querySelector("#date-time");
+p.innerHTML = formatDate();
 
 navigator.geolocation.getCurrentPosition(retrievePosition);
