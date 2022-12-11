@@ -7,7 +7,7 @@ function formatDate() {
     "Wednesday",
     "Thursday",
     "Friday",
-    "Satday",
+    "Saturday",
   ];
   let day = days[now.getDay()];
   let hours = now.getHours();
