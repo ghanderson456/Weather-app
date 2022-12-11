@@ -10,6 +10,21 @@ body {
   border-width: 10px;
 }
 
+ul {
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+li {
+  color: #232323;
+  font-size: 16px;
+  font-weight: 100;
+  height: 19px;
+  line-height: 1;
+  list-style: none;
+  text-transform: capitalize;
+}
+
 .card {
   display: block;
   margin: 0 auto;
@@ -40,4 +55,18 @@ body {
 
 .bi-brightness-high-fill {
   color: rgb(190, 12, 12);
+}
+
+.weather-temperature .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+  text-decoration: none;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
+
+a {
+  text-decoration: none;
 }
